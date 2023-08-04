@@ -1,0 +1,29 @@
+version: '3'
+services:
+  app_test28_db:
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: passtoRo
+      MYSQL_DATABASE: app
+      MYSQL_USER: app_service
+      MYSQL_PASSWORD: app_password
+    ports:
+      - '3306:3306'
+    networks:
+      - app_network
+
+  app_test28_laravel:
+    build:
+      context: ./laravel
+      dockerfile: Dockerfile
+    ports:
+      - '8001:8001'
+    networks:
+      - app_network
+    volumes:
+      - /mnt/data/project/test28/laravel:/var/www/html
+
+
+networks:
+  app_network:
