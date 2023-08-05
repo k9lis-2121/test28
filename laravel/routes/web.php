@@ -19,4 +19,3 @@ Route::get('/', function () {
 });
 
 
-Route::get('/cars/user_id/{user_id}', [CarController::class, 'index']);

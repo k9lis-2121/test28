@@ -1,0 +1,579 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "test28 API",
+        "description": "API по тестовому заданию",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/carBrands": {
+            "get": {
+                "tags": [
+                    "Бренды"
+                ],
+                "summary": "Получить список брендов",
+                "operationId": "06125dee8f9798ab2806077e0ad662b5",
+                "responses": {
+                    "200": {
+                        "description": "Список брендов"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Бренды"
+                ],
+                "summary": "Добавить новый бренд",
+                "operationId": "c7f99322b5d3dbd4fd30b558618d3dc5",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CarBrand"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Готово! Новый бренд создан"
+                    }
+                }
+            }
+        },
+        "/api/carBrands/{id}": {
+            "get": {
+                "tags": [
+                    "Бренды"
+                ],
+                "summary": "Получить информацию о конкретном бренде",
+                "operationId": "89dc88f38d51e044a389eaf6c09e0856",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID бренда",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Бренд"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Бренды"
+                ],
+                "summary": "Обновить запись о бренде",
+                "operationId": "b6a417703342bdc32f69ed5e0aa4e20d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID бренда",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CarBrand"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Запись обновлена!"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Бренды"
+                ],
+                "summary": "Удалить бренд",
+                "operationId": "a5287fcfcc2dfb221319462085da2a4b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID бренда",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Готово! Бренд удален"
+                    }
+                }
+            }
+        },
+        "/api/cars/": {
+            "get": {
+                "tags": [
+                    "Автомобили"
+                ],
+                "summary": "Получить список всех автомобилей",
+                "operationId": "3e479889d3c97d82b3b49f95b3510ce5",
+                "responses": {
+                    "200": {
+                        "description": "Список автомобилей пользователей"
+                    }
+                }
+            }
+        },
+        "/api/cars/user_id/{user_id}": {
+            "get": {
+                "tags": [
+                    "Автомобили"
+                ],
+                "summary": "Получить список автомобилей пользователя",
+                "operationId": "f2a92c52ecdcf5ef132c0e8e0ec268e1",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "description": "Идентификатор пользователя",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Список автомобилей пользователя"
+                    }
+                }
+            }
+        },
+        "/api/cars": {
+            "post": {
+                "tags": [
+                    "Автомобили"
+                ],
+                "summary": "Создать новый автомобиль",
+                "operationId": "6f519ab2c9767d4d3b1be7cf8f1287ed",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Car"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Автомобиль успешно создан"
+                    }
+                }
+            }
+        },
+        "/api/cars/{id}": {
+            "get": {
+                "tags": [
+                    "Автомобили"
+                ],
+                "summary": "Получить информацию об автомобиле",
+                "operationId": "b222bfa902eefbb6a4a875762081dcbc",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор автомобиля",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Информация об автомобиле"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Автомобили"
+                ],
+                "summary": "Обновить информацию об автомобиле",
+                "operationId": "1d232cedb5f39024dccd947cddd10087",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор автомобиля",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Car"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Информация об автомобиле успешно обновлена"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Автомобили"
+                ],
+                "summary": "Удалить автомобиль",
+                "operationId": "802b64f09e484fbb1bb3817362d30cc9",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор автомобиля",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Автомобиль успешно удален"
+                    }
+                }
+            }
+        },
+        "/api/carModels": {
+            "get": {
+                "tags": [
+                    "Модели"
+                ],
+                "summary": "Получить список моделей автомобилей",
+                "operationId": "fd7d14ee538899e1286b1f090f78b2f6",
+                "responses": {
+                    "200": {
+                        "description": "Список моделей автомобилей"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Модели"
+                ],
+                "summary": "Создать новую модель автомобиля",
+                "operationId": "52ed4bd67b7ae0ce6de4a3df63c0686b",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Название модели автомобиля",
+                                        "type": "string"
+                                    },
+                                    "brand_id": {
+                                        "description": "Идентификатор бренда модели автомобиля",
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Модель автомобиля успешно создана"
+                    }
+                }
+            }
+        },
+        "/api/carModels/{id}": {
+            "get": {
+                "tags": [
+                    "Модели"
+                ],
+                "summary": "Получить информацию о модели автомобиля",
+                "operationId": "e9bb5bd7fb240defacb5bb5076552439",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID модели",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Информация о модели автомобиля"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Модели"
+                ],
+                "summary": "Обновить информацию о модели автомобиля",
+                "operationId": "2f7e2eac17041e2aedf2aaa23d8c645e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID модели",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Название модели автомобиля",
+                                        "type": "string"
+                                    },
+                                    "brand_id": {
+                                        "description": "Идентификатор бренда модели автомобиля",
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Информация о модели автомобиля успешно обновлена"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Модели"
+                ],
+                "summary": "Удалить модель автомобиля",
+                "operationId": "d183b97c2be3a26c5982857dee10ff35",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID модели",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Модель автомобиля успешно удалена"
+                    }
+                }
+            }
+        },
+        "/api/users/": {
+            "get": {
+                "summary": "List users",
+                "description": "Returns a list of users that are registered on a server with pagination",
+                "operationId": "list_users",
+                "responses": {
+                    "200": {
+                        "description": "List of users"
+                    },
+                    "500": {
+                        "description": "Something went wrong"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Car": {
+                "title": "Car",
+                "description": "Модель автомобиля",
+                "properties": {
+                    "brand_id": {
+                        "description": "Идентификатор бренда автомобиля",
+                        "type": "integer"
+                    },
+                    "model_id": {
+                        "description": "Идентификатор модели автомобиля",
+                        "type": "integer"
+                    },
+                    "year": {
+                        "description": "Год выпуска автомобиля",
+                        "type": "integer"
+                    },
+                    "mileage": {
+                        "description": "Пробег автомобиля в километрах",
+                        "type": "integer"
+                    },
+                    "color": {
+                        "description": "Цвет автомобиля",
+                        "type": "string"
+                    },
+                    "user_id": {
+                        "description": "Идентификатор пользователя, владеющего автомобилем",
+                        "type": "integer"
+                    },
+                    "created_at": {
+                        "description": "Дата и время создания автомобиля",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "description": "Дата и время последнего обновления автомобиля",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "deleted_at": {
+                        "description": "Дата и время удаления автомобиля (если применимо)",
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    }
+                },
+                "type": "object"
+            },
+            "CarBrand": {
+                "title": "Car Brand",
+                "description": "Модель данных для списка брендов автомобилей",
+                "properties": {
+                    "id": {
+                        "description": "ID бренда",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "Название бренда",
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "description": "Дата создания записи",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "description": "Дата и время обновления записи",
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "type": "object"
+            },
+            "carModel": {
+                "title": "Car Model",
+                "description": "Модель автомобиля",
+                "properties": {
+                    "id": {
+                        "description": "Уникальный идентификатор модели автомобиля",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "Название модели автомобиля",
+                        "type": "string"
+                    },
+                    "brand_id": {
+                        "description": "Идентификатор бренда модели автомобиля",
+                        "type": "integer"
+                    },
+                    "created_at": {
+                        "description": "Дата и время создания модели автомобиля",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "description": "Дата и время последнего обновления модели автомобиля",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "deleted_at": {
+                        "description": "Дата и время удаления модели автомобиля (если применимо)",
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    }
+                },
+                "type": "object"
+            },
+            "User": {
+                "title": "User",
+                "description": "Модель пользователя",
+                "properties": {
+                    "id": {
+                        "description": "Уникальный идентификатор пользователя",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "Имя пользователя",
+                        "type": "string"
+                    },
+                    "email": {
+                        "description": "Электронная почта пользователя",
+                        "type": "string"
+                    },
+                    "email_verified_at": {
+                        "description": "Дата и время подтверждения электронной почты пользователя (если применимо)",
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "created_at": {
+                        "description": "Дата и время создания пользователя",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "description": "Дата и время последнего обновления пользователя",
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Бренды",
+            "description": "Методы для работы с брендами автомабилей"
+        },
+        {
+            "name": "Автомобили",
+            "description": "Методы для работы с автомобилями"
+        },
+        {
+            "name": "Модели",
+            "description": "Методы для работы с моделями автомобилей"
+        }
+    ]
+}
